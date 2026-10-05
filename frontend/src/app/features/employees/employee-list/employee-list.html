@@ -1,0 +1,40 @@
+<h2>Employees</h2>
+<p>DEBUG employee count: {{ employees().length }}</p>
+
+@if (employees().length === 0) {
+  <p>No active employees found.</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Position</th>
+        <th>Phone</th>
+        <th>Hire Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (employee of employees(); track employee.EmpID) {
+        <tr>
+          <td>{{ employee.EmpID }}</td>
+          <td>{{ employee.FirstName }} {{ employee.LastName }}</td>
+          <td>{{ employee.Email }}</td>
+          <td>{{ employee.Department }}</td>
+          <td>{{ employee.Position }}</td>
+          <td>{{ employee.Phone }}</td>
+          <td>{{ employee.HireDate }}</td>
+          <td>
+            <button type="button" (click)="editEmployee(employee)">Edit</button>
+
+            <button type="button" (click)="deactivateEmployee(employee)">Deactivate</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

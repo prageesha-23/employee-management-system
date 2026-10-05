@@ -1,3 +1,16 @@
 <h1>Employee Management System</h1>
 
-<p>Angular frontend is working!</p>
+<app-employee-form
+  [selectedEmployee]="selectedEmployee()"
+  (employeeSaved)="onEmployeeSaved()"
+  (editCancelled)="onEditCancelled()"
+>
+</app-employee-form>
+
+<hr />
+
+<app-employee-list
+  [refreshTrigger]="employeeRefreshTrigger()"
+  (employeeSelected)="onEmployeeSelected($event)"
+>
+</app-employee-list>
