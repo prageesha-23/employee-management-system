@@ -1,0 +1,35 @@
+<h2>Salary Payments</h2>
+
+@if (salaryPayments().length === 0) {
+  <p>No salary payments found.</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (
+        payment of salaryPayments();
+        track payment.EmpID + '-' + payment.Year + '-' + payment.Month
+      ) {
+        <tr>
+          <td>{{ payment.EmpID }}</td>
+          <td>{{ payment.Year }}</td>
+          <td>{{ payment.Month }}</td>
+          <td>{{ payment.Amount }}</td>
+          <td>
+            <button type="button" (click)="editPayment(payment)">Edit</button>
+            <button type="button" (click)="deletePayment(payment)">Delete</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

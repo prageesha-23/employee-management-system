@@ -14,3 +14,18 @@
   (employeeSelected)="onEmployeeSelected($event)"
 >
 </app-employee-list>
+
+<hr />
+
+<app-salary-payment-form
+  [selectedPayment]="selectedSalaryPayment()"
+  (paymentSaved)="onSalaryPaymentSaved()"
+  (editCancelled)="onSalaryEditCancelled()"
+>
+</app-salary-payment-form>
+
+<app-salary-payment-list
+  [refreshTrigger]="salaryRefreshTrigger()"
+  (paymentSelected)="onSalaryPaymentSelected($event)"
+>
+</app-salary-payment-list>
