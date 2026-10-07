@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div>
+    <h1>Salary Payments</h1>
+    <p>Manage monthly salary payments for employees.</p>
+  </div>
+</div>
+
+<div class="salary-page-grid">
+  <section class="form-section">
+    <app-salary-payment-form
+      [selectedPayment]="selectedSalaryPayment()"
+      (paymentSaved)="onSalaryPaymentSaved()"
+      (editCancelled)="onSalaryEditCancelled()"
+    >
+    </app-salary-payment-form>
+  </section>
+
+  <section class="list-section">
+    <app-salary-payment-list
+      [refreshTrigger]="salaryRefreshTrigger()"
+      (paymentSelected)="onSalaryPaymentSelected($event)"
+    >
+    </app-salary-payment-list>
+  </section>
+</div>

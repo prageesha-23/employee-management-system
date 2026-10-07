@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, signal, output, input, effect } from '@angular/core';
 import { EmployeeService } from '../../../core/services/employee';
 import { Employee } from '../../../core/models/employee';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DatePipe],
   templateUrl: './employee-list.html',
   styleUrl: './employee-list.css',
 })

@@ -1,31 +1,24 @@
-<h1>Employee Management System</h1>
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>EMS</h2>
+      <p>Employee Management</p>
+    </div>
 
-<app-employee-form
-  [selectedEmployee]="selectedEmployee()"
-  (employeeSaved)="onEmployeeSaved()"
-  (editCancelled)="onEditCancelled()"
->
-</app-employee-form>
+    <nav class="sidebar-nav">
+      <a routerLink="/employees" routerLinkActive="active"> Employees </a>
 
-<hr />
+      <a routerLink="/salary-payments" routerLinkActive="active"> Salary Payments </a>
+    </nav>
+  </aside>
 
-<app-employee-list
-  [refreshTrigger]="employeeRefreshTrigger()"
-  (employeeSelected)="onEmployeeSelected($event)"
->
-</app-employee-list>
+  <main class="main-content">
+    <header class="topbar">
+      <h1>Employee Management System</h1>
+    </header>
 
-<hr />
-
-<app-salary-payment-form
-  [selectedPayment]="selectedSalaryPayment()"
-  (paymentSaved)="onSalaryPaymentSaved()"
-  (editCancelled)="onSalaryEditCancelled()"
->
-</app-salary-payment-form>
-
-<app-salary-payment-list
-  [refreshTrigger]="salaryRefreshTrigger()"
-  (paymentSelected)="onSalaryPaymentSelected($event)"
->
-</app-salary-payment-list>
+    <section class="page-content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

@@ -6,7 +6,7 @@
   <table>
     <thead>
       <tr>
-        <th>Employee ID</th>
+        <th>Employee</th>
         <th>Year</th>
         <th>Month</th>
         <th>Amount</th>
@@ -20,10 +20,12 @@
         track payment.EmpID + '-' + payment.Year + '-' + payment.Month
       ) {
         <tr>
-          <td>{{ payment.EmpID }}</td>
+          <td>{{ getEmployeeName(payment.EmpID) }}</td>
           <td>{{ payment.Year }}</td>
-          <td>{{ payment.Month }}</td>
-          <td>{{ payment.Amount }}</td>
+          <td>{{ getMonthName(payment.Month) }}</td>
+          <td>
+            {{ payment.Amount | currency: 'LKR' : 'symbol' : '1.2-2' }}
+          </td>
           <td>
             <button type="button" (click)="editPayment(payment)">Edit</button>
             <button type="button" (click)="deletePayment(payment)">Delete</button>

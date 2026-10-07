@@ -70,7 +70,7 @@ const createEmployee = (req, res) => {
     Phone,
     Department,
     Position,
-    HireDate,
+    HireDate || null,
   ];
 
   db.query(sql, values, (err, result) => {
@@ -122,7 +122,7 @@ const updateEmployee = (req, res) => {
     Phone,
     Department,
     Position,
-    HireDate,
+    HireDate || null,
     id,
   ];
 

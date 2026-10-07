@@ -1,5 +1,4 @@
 <h2>Employees</h2>
-<p>DEBUG employee count: {{ employees().length }}</p>
 
 @if (employees().length === 0) {
   <p>No active employees found.</p>
@@ -27,7 +26,11 @@
           <td>{{ employee.Department }}</td>
           <td>{{ employee.Position }}</td>
           <td>{{ employee.Phone }}</td>
-          <td>{{ employee.HireDate }}</td>
+          <td>
+            {{
+              employee.HireDate | date: 'dd MMM yyyy'
+            }}
+          </td>
           <td>
             <button type="button" (click)="editEmployee(employee)">Edit</button>
 

@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div>
+    <h1>Employees</h1>
+    <p>Manage employee information and employment status.</p>
+  </div>
+</div>
+
+<div class="employee-page-grid">
+  <section class="form-section">
+    <app-employee-form
+      [selectedEmployee]="selectedEmployee()"
+      (employeeSaved)="onEmployeeSaved()"
+      (editCancelled)="onEditCancelled()"
+    >
+    </app-employee-form>
+  </section>
+
+  <section class="list-section">
+    <app-employee-list
+      [refreshTrigger]="employeeRefreshTrigger()"
+      (employeeSelected)="onEmployeeSelected($event)"
+    >
+    </app-employee-list>
+  </section>
+</div>
